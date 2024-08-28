@@ -29,7 +29,8 @@
   },
   "scripts": {
     "start": "concurrently \"REACT_APP_BACKEND_URL=localhost:3001 react-scripts start\" \"node server.js\"",
-    "build": "REACT_APP_BACKEND_URL=darigo.su/guestbook/api react-scripts build"
+    "build": "REACT_APP_BACKEND_URL=darigo.su/guestbook/api react-scripts build",
+    "deploy": "react-scripts build && cp -r build/* ../build && cd ../build && git add . && git commit -m 'Ran deploy from command line' && git push --force"
   },
   "eslintConfig": {
     "extends": [
