@@ -122,18 +122,12 @@ a {
   }
 }
 
-#pokeball {
-  width: 70px;
-  position: fixed; bottom: 25px; right: 25px;
-}
-
 #modal-footer {
   display: flex;
   justify-content: space-around;
 }
 
 .green{
-  position: fixed; bottom: 25px; right: 25px;
   z-index: -100;
   background: white;
 }

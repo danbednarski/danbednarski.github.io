@@ -44,20 +44,36 @@ function App() {
         <Modal show={show2} onHide={handleClose2} onExited={()=>setFocusInput(focusInput+1)}>
         <Modal.Header closeButton>
           <Modal.Title>
-            I didn't come here to die...
+            <span style={{
+              margin: "0px",
+              color: "black",
+              fontFamily: "monospace",
+              fontSize:"large"
+            }}>
+              $ ls -l /var/web/public/
+            </span>
             </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <span onClick={()=>setMuted(!muted)} id="music-link">
-            {muted ? "(unmute)" : "(mute)"}
-          </span>
-          <p>I've lost things in the Wired.</p>
+          <pre style={{padding: "0px"}}>
+            <span><a href='#' onClick={_=>{handleClose2();handleShow()}}>mimikyu/</a>   directory  8MB</span><br />
+            <span><a href='#' onClick={_=>alert('only mimikyu')}>code/</a>      directory  1GB</span><br />
+            <span><span style={{color:"gray", textDecoration: "line-through"}}>.dotfiles</span>  denied     2KB</span><br />
+            <span><a href='#' onClick={_=>alert('only mimikyu')}>wired.txt</a>  text       28B</span><br />
+          </pre>
+          <hr style={{width: "75px"}}/>
+          <div style={{fontSize:"small"}}>
+          <p>I've lost things to the Wired.</p>
           <p>Collectibles trapped in a frozen Neopets account. 
           Sats stacked in a seized VPS. Cheers to some State Dept human blob living 
           fat from that little act of wealth redistribution.</p>
-          <p>I don't complain. With so many people lost, to cry over <i>things</i> feels like a lack of respect for suffering.
+          <p>No complaints. With so many people lost, to cry over <i>stuff</i> would lack respect for true pain.
           </p>
-          <i>- Eduardo Galeano (kind of)</i></Modal.Body>
+          <p onClick={()=>setMuted(!muted)} id="music-link">
+            {muted ? "(unmute)" : "(mute)"}
+          </p>
+          </div>
+        </Modal.Body>
       </Modal>
       <Modal
         size="lg"
@@ -92,9 +108,6 @@ function App() {
       </Modal>
       <header className="App-header">
         <div id="sigil-container">
-          {
-            // note: do something with this lmao
-          }
           <a target="_blank" href="#" onClick={e=>{e.preventDefault();handleShow2()}}>
             <video width="270" muted autoPlay loop playsInline>
               <source src="/sigil.webm" type="video/webm" />
@@ -108,10 +121,6 @@ function App() {
       </header>
       <center><hr style={{width: '500px', marginBottom: '40px', marginTop: '10px'}} /></center>
       <Terminal inputRef={inputRef} />
-      <div className="pulse-ring">
-        <a href="#" onClick={handleShow}><img id="pokeball" src="/pokeball.png"></img></a>
-        <div className="circle pulse green"></div>
-      </div>
     </div>
   );
 }

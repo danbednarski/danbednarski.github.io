@@ -19,7 +19,7 @@ const PC = ({handleClose}) => {
         <div style={{textAlign: 'center'}}>
         <img style={{width: '120px', borderRadius: '50%'}} src="/mamimi.png"></img>
         <br />
-        Darigo
+        Dan
         <br />
         
         <div>

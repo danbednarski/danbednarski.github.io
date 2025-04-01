@@ -1,7 +1,7 @@
 export default {
   'README.md': {
     contents: `
-"Heyyyy," wrote Darigo, at an ungodly hour (2 PM). "Welcome to my home on the web!"
+"Heyyyy," wrote Dan, at an ungodly hour (2 PM). "Welcome to my home on the web!"
 
 <p  /> His face warped into an insufferable smirk. How clever (he thought) he was. The downright slutty amount of Y's that drag on just enough to make you uncomfortable. H - e - y - y - y - y.
 His funky 90s lingo - <i>home on the web</i>. As if we weren't all digital renters now. All homeless. Unhoused, undocumented.
@@ -14,19 +14,17 @@ But yeah, no. I'm just one person. You're just one person. Together we'd be two 
 
 <p  />
 
-"Welcome", he said to himself, "to my little island in a big ocean, far from the mainland". The beach, the water, the little shack, the coconut tree. These heard him. No one else did, though. Darigo looked at a passing cloud and the glory of the bright sky ached in his eyes.
+"Welcome", he said to himself, "to my little island in a big ocean, far from the mainland". The beach, the water, the little shack, the coconut tree. These heard him. No one else did, though. Dan looked at a passing cloud and the glory of the bright sky ached in his eyes.
 
-<p  />"You know...", he paused to blow out a puff of opium smoke, then continued, "...", but there was nothing to say, no one to whom to say it.
+<p  />"You know...", he paused to blow out a puff of copium smoke, then continued, "...", but there was nothing to say, no one to whom to say it.
 
-<p  />The island doesn't exist, it's still just a metaphor! But to paint a picture, suppose that this island looks exactly like Master Roshi's island from Dragonball.
-<p  />Oh, right. He looked at his todo list. <i>Add social media links to README on webpage.</i> "Fuck me". He looked at what he'd written, compared to what he was supposed to write. "Whatever, here's some links. Hmu."
+<p  />The island doesn't exist! But to paint a picture, suppose that this island looks exactly like Master Roshi's island from Dragonball.
+<p  />Oh, right. He looked at his todo list. <i>Add social media links to README on webpage.</i> "Okay." He looked at what he'd written, compared to what he was supposed to write. "Whatever, here's some links. Hmu."
 <p  />
 <ul>
 <li><a target="_blank" href="https://www.chess.com/member/darighost">Chess.com</a  ></li>
 <li><a target="_blank" href="https://news.ycombinator.com/user?id=sdsd">HackerNews</a  ></li>
-<li><a target="_blank" href="https://www.goodreads.com/user/show/149912174-darigo">Goodreads</a  ></li>
-<li><a target="_blank" href="https://x.com/darigh0st">X</a  ></li>
-
+<li><a target="_blank" href="https://www.goodreads.com/danbb">Goodreads</a  ></li>
 </ul>
 <p  />As Brian & Dennis quipped in the first edition of that book about Lisp or something:<p  />
 
@@ -39,7 +37,7 @@ But yeah, no. I'm just one person. You're just one person. Together we'd be two 
 <p />
 And the rest, as they say, was mystery.<p  />
 
-OH! Wait. Hey, if you're an employer reading this, check out <a target='_blank' href='/portfolio'>my portfolio</a>. And for everyone else, please click the pokeball in the bottom right corner of the page.
+OH! Wait. Hey, if you're an employer reading this, check out <a target='_blank' href='/portfolio'>my portfolio</a>. And for everyone else, please click the sigil on the top of the page and say hi to mimikyu.
 <p  />
 Kthxbai!
 `,
@@ -144,7 +142,7 @@ For those of you who don't know what the .^ rune does, don't look it up. Do not 
 And for those of you who do know: do not ever scry %💀.
 <p  />
 
-<a target="_blank" href="https://twitter.com/hanfel_dovned/status/1715055895347114093">x/~hanfel-dovned</a  >
+<a target="_blank" href="https://x.com/hanfel_dovned/status/1715055895347114093">x/~hanfel-dovned</a  >
     `
   },
   '.somefile.txt': {

@@ -28,18 +28,19 @@ const display = (text, output, setOutput, setReadyForInput) => {
 
 const Terminal = ({inputRef}) => {
   const [currentUser, setCurrentUser] = useState('guest')
-  const promptText = `${currentUser}@darigo.su:~ $ `;
+  const promptText = `${currentUser}@dan.su:~ $ `;
   const init = `
-  Welcome to <a target="_blank" href="https://github.com/darighost">D-WOS Ⓐ</a  > (Dari's Web OS)<br />
+  Welcome to <a target="_blank" href="https://github.com/i-need-to-make-this-an-npm-package">D-WOS Ⓐ</a  > (Dani's Web OS)<br />
   Enter <b   >help</b  > to see available commands<p  />
   `;
   const helpMessage = `
-  whoami - basic info about me.<br />
-  ls - list files<br />
-  cat - read files. For example, cat .somefile.txt
+  who - basic info about me.<br />
+  ls &nbsp;- list files<br />
+  cat - read files. Eg, cat .somefile.txt<br />
+  su  &nbsp;- switch users. Eg, su dan
   `; //todo: if they do cat somefile.txt, they get the secret to access the real hackme
   const whoAmIMessage = `
-    Darigo.<p  />
+    Dani.<p  />
     Sabreur, <a target="_blank" href="https://git.lain.church/darighost">rogue dev</a  >, quirked up white boi.<p  />
   `;
   const [output, setOutput] = useState("")
@@ -82,7 +83,7 @@ const Terminal = ({inputRef}) => {
           case 'cat':
             if (Object.keys(files).includes(argument)) {
               if (argument === 'HACKME') {
-                if (prompt.startsWith('darigo')) {
+                if (prompt.startsWith('dan')) {
                   display(files[argument].contents, output + '<p />' + prompt + '<p />', setOutput, setReadyForInput);
                 } else {
                   display('Permission denied.', output + '<p />' + prompt + '<p />', setOutput, setReadyForInput);
@@ -95,8 +96,8 @@ const Terminal = ({inputRef}) => {
             }
             break;
           case 'su':
-            setCurrentUser('darigo');
-            setPrompt('darigo@darigo.su:~ $ ')
+            setCurrentUser('dan');
+            setPrompt('dan@dan.su:~ $ ')
             display('<p  />', output + '<p />' + prompt + '<p />', setOutput, setReadyForInput);
             break;
           default:

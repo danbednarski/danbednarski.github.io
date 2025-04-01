@@ -84,7 +84,7 @@ function Guestbook() {
               return;
             }
             if (file === null) {
-              alert('You must attach a file!')
+              alert('You must attach an image!')
               return;
             }
             console.log(subject)
@@ -118,7 +118,7 @@ function Guestbook() {
         }} style={{maxWidth: "fit-content"}}>
         <input name='subject' onChange={e=>setSubject(e.target.value)} value={subject} placeholder='Subject...' type="text"></input><br />
         <textarea name='content' onChange={e=>setContent(e.target.value)} value={content} placeholder='Say hi!' rows={3} cols={25}></textarea><br />
-        <input name='file' style={{width: '230px'}} onChange={e=>{if (e.target.files[0].size > 10 * 1024 * 1024) {alert('Image must be smaller than 10 MB!'); return;} setFilename(e.target.value);fileToBase64(e.target.files[0], setFile)}} value={filename} type='file'></input><br />
+        <input name='file' style={{width: '230px'}} onChange={e=>{if (e.target.files[0].size > 10 * 1024 * 1024) {alert('Image must be smaller than 10 MB!'); return;} setFilename(e.target.value);fileToBase64(e.target.files[0], setFile)}} value={filename} type='file' accept="image/*"></input><br />
         <input type='submit' value="Upload"></input>
       </form>
     </header>
@@ -129,8 +129,8 @@ function Guestbook() {
           </div>
           <div className="post-text">
             <font color='maroon'><b>📌 Subject: </b></font>
-            <span className='post-subject'>Sup, WWW!</span><br />
-            <span>Welcome to my guestbook, take a moment to say hello!</span>
+            <span className='post-subject'>My guestbook!</span><br />
+            <span>Say hi! I'll see it whenever I check this. Since Github Pages are frontend only, I'm storing your comments in <a target="_blank" href="https://gist.github.com/narskidan/bb9839b9cd0d2742ed022392135e1376">my Urbit computer</a>.</span>
           </div>
         </div>
     {(posts === null) ? "Loading posts..." : posts.reverse().map(p => {
