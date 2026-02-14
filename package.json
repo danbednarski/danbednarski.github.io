@@ -22,15 +22,14 @@
     "react-scripts": "5.0.1",
     "react-use-keypress": "^1.3.1",
     "react95": "^4.0.0",
-    "sqlite3": "^5.1.7",
-    "styled-components": "^6.1.8",
+"styled-components": "^6.1.8",
     "web-vitals": "^2.1.4",
     "ws": "^8.16.0"
   },
   "scripts": {
     "start": "concurrently \"REACT_APP_BACKEND_URL=localhost:3001 react-scripts start\" \"node server.js\"",
     "build": "REACT_APP_BACKEND_URL=darigo.su/guestbook/api react-scripts build",
-    "deploy": "react-scripts build && cp -r build/* ../build && cd ../build && git add . && git commit -m 'Ran deploy from command line' && git push --force"
+    "deploy": "react-scripts build && cd worker && npx wrangler deploy"
   },
   "eslintConfig": {
     "extends": [

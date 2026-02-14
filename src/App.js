@@ -1,22 +1,15 @@
 import './App.css';
-import Terminal from './Terminal';
 import Pokeroom from './pokeroom.tsx';
-import { useRef, useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
-  const inputRef = useRef(null);
-  const [focusInput, setFocusInput] = useState(0);
-  useEffect(() => {
-    inputRef.current?.focus();
-  }, [focusInput]);
-
   const [show, setShow] = useState(false);
   const [muted, setMuted] = useState(false)
   const [show2, setShow2] = useState(false);
-  const handleClose = () => setShow(false);
+  const handleClose = () => { setShow(false); window.location.reload(); };
   const handleShow = () => setShow(true);
   const handleClose2 = () => setShow2(false);
   const handleShow2 = () => setShow2(true);
@@ -39,7 +32,7 @@ function App() {
           </video>
         </div>
       )}
-      <Modal show={show2} onHide={handleClose2} onExited={() => setFocusInput(focusInput + 1)}>
+      <Modal show={show2} onHide={handleClose2}>
         <Modal.Header closeButton>
           <Modal.Title>
             I didn't come here to die...
@@ -63,7 +56,6 @@ function App() {
         backdrop="static"
         show={show}
         onHide={handleClose}
-        onExited={() => setFocusInput(focusInput + 1)}
       >
         <Modal.Body>
           <Pokeroom handleClose={handleClose} />
@@ -83,7 +75,11 @@ function App() {
         </p>
       </header>
       <center><hr style={{ width: '500px', marginBottom: '40px', marginTop: '10px' }} /></center>
-      <Terminal inputRef={inputRef} />
+      <iframe
+        id="terminal-frame"
+        src="/terminal"
+        title="Terminal"
+      />
 
     </div>
   );

@@ -54,16 +54,12 @@ a {
   text-underline-offset: 4px;
 }
 
-#terminal {
-  width: 450px;
-  color: #4a4a49;
-  text-align: left;
-  margin: auto;
-  max-height: 400px;
-  overflow-y:scroll;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  display: flex;
-  flex-direction: column-reverse;
+#terminal-frame {
+  width: 500px;
+  height: 450px;
+  border: none;
+  display: block;
+  margin: 0 auto;
 }
 
 #quote {
@@ -79,22 +75,6 @@ a {
   align-items: center;
   justify-content: space-around;
   color: black;
-}
-
-#prompt {
-  width: 450px;
-  color: #4a4a49;
-  border: 0;
-  outline-width: 0;
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size: calc(16px);
-  margin-bottom: 25px;
-}
-
-
-#prompt:focus {
-  outline: none;
-  border: none;
 }
 
 .App-link {
