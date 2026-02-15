@@ -816,9 +816,9 @@ export function renderPage(opts: TemplateOptions): string {
         <img src="/bin.png" alt="" /> cmd.exe
       </span>
       <div class="start-menu-divider"></div>
-      <label class="start-menu-item" for="desktop-toggle">
+      <a class="start-menu-item" href="/">
         <img src="/windows_logo.png" alt="" /> Shut Down
-      </label>
+      </a>
     </div>
 
     <!-- Taskbar -->

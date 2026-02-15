@@ -54,15 +54,18 @@ test.describe('Win95 Desktop', () => {
     await expect(page.locator('.taskbar-clock')).toContainText('4:20 PM');
   });
 
-  test('shut down closes desktop', async ({ page }) => {
+  test('shut down refreshes page', async ({ page }) => {
     await page.locator('#sigil-container').click();
-    const modal = page.locator('#desktop-modal');
-    await expect(modal).toHaveCSS('display', 'block');
+    await expect(page.locator('#desktop-modal')).toHaveCSS('display', 'block');
 
     // Open start menu then click Shut Down
     await page.locator('.start-btn').click();
     await page.locator('.start-menu-item:has-text("Shut Down")').click();
-    await expect(modal).toHaveCSS('display', 'none');
+    await page.waitForURL('/');
+    await expect(page.locator('#desktop-modal')).toHaveCSS('display', 'none');
+    // Input should be autofocused after refresh
+    const input = page.locator('input[name="cmd"]');
+    await expect(input).toBeFocused();
   });
 });
 
