@@ -18,13 +18,14 @@ export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     const url = new URL(request.url);
 
-    // Terminal route
-    if (url.pathname === '/terminal') {
-      const cmd = url.searchParams.get('cmd') ?? '';
+    const headers = new Headers({
+      'Content-Type': 'text/html; charset=utf-8',
+      'Content-Security-Policy': "script-src 'none'",
+    });
 
-      const headers = new Headers({
-        'Content-Type': 'text/html; charset=utf-8',
-      });
+    // Terminal at root
+    if (url.pathname === '/') {
+      const cmd = url.searchParams.get('cmd') ?? '';
 
       if (!cmd && !url.searchParams.has('cmd')) {
         const html = renderPage({ output: '', instant: true });
@@ -43,7 +44,7 @@ export default {
       return new Response(html, { headers });
     }
 
-    // Everything else: static assets (React app at /, sigil.webm, etc.)
+    // Everything else: static assets (sigil.webm, etc.)
     return env.ASSETS.fetch(request);
   },
 };
