@@ -3,5 +3,11 @@ main = "src/index.ts"
 compatibility_date = "2024-01-01"
 
 [assets]
-directory = "../build"
+directory = "./public"
 binding = "ASSETS"
+html_handling = "none"
+not_found_handling = "none"
+
+[[kv_namespaces]]
+binding = "GUESTBOOK"
+id = "9edf55f15e1041a4b64ef4a964d93624"
