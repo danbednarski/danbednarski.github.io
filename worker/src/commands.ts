@@ -34,7 +34,7 @@ export function handleCommand(cmd: string): CommandResult {
 
     case 'who':
       return {
-        output: `Darigo.<p />Sabreur, <a target="_blank" href="https://git.lain.church/darighost">rogue dev</a>, quirked up white boi.<p />`
+        output: `I'm pears, aka pricklypears.<p />Sabreur, <a target="_blank" href="https://narski.neocities.org/">rogue dev</a>, Walmart Plus subscriber.<p />`
       };
 
     case 'cat': {
@@ -49,15 +49,6 @@ export function handleCommand(cmd: string): CommandResult {
         instant: true
       };
     }
-
-    case 'ps':
-      return {
-        output: [
-          'PID TTY          TIME CMD',
-          '  1 tty1     00:00:00 darigo.su',
-          '  2 tty1     00:00:00 <a target="_blank" href="https://github.com/darighost">github</a>',
-        ].join('<br />')
-      };
 
     default:
       return { output: 'Unknown command.' };

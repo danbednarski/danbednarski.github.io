@@ -55,7 +55,7 @@ function renderPost(post: GuestbookPost): string {
 
 export function renderPage(opts: TemplateOptions): string {
   const { cmdEcho, output, instant, clear, posts, guestbookOpen } = opts;
-  const prompt = 'guest@darigo.su:~ $&nbsp;';
+  const prompt = 'guest@pears:~ $&nbsp;';
 
   let outputSection = '';
   if (cmdEcho !== undefined && !clear && output) {
@@ -68,8 +68,8 @@ export function renderPage(opts: TemplateOptions): string {
 
   const welcomeSection = clear ? '' : `
     <div class="welcome">
-      Welcome to <a target="_blank" href="https://github.com/darighost">D-WOS \u24B6</a> (Dari's Web OS)<br />
-      Commands: <b>ls</b>, <b>cat</b>, <b>who</b>, <b>ps</b>
+      Welcome to <span style="font-variant:small-caps">P-WOS</span> (Pears' Web OS)<br />
+      Commands: <b>ls</b>, <b>cat</b>, <b>who</b>
     </div>`;
 
   const postsHtml = posts.map(renderPost).join('\n');
@@ -83,13 +83,13 @@ export function renderPage(opts: TemplateOptions): string {
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=JetBrains+Mono:wght@400;700&family=Playfair:ital@1&display=swap" rel="stylesheet" />
 <style>
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html, body {
     height: 100%;
     background: white;
-    font-family: 'Atkinson Hyperlegible Mono', monospace;
+    font-family: 'JetBrains Mono', monospace;
     font-size: 16px;
     color: #4a4a49;
   }
@@ -107,7 +107,7 @@ export function renderPage(opts: TemplateOptions): string {
   }
   #sigil-container { overflow: hidden; cursor: pointer; height: 260px; }
   #sigil-container video { margin-bottom: -10px; pointer-events: none; }
-  #quote { font-size: 14px; }
+  #quote { font-size: 14px; font-family: 'Playfair', Georgia, serif; line-height: 1.6; color: #333; }
   hr { width: 500px; margin: 10px auto 40px auto; }
 
   #terminal {
@@ -175,7 +175,7 @@ export function renderPage(opts: TemplateOptions): string {
     overflow-y: auto;
     border: 1px solid #b7c5e4;
     position: relative;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Inter', sans-serif;
     font-size: 13px;
     color: #000;
   }
@@ -199,7 +199,6 @@ export function renderPage(opts: TemplateOptions): string {
     font-size: 18px;
     font-weight: bold;
     cursor: pointer;
-    font-family: Arial, Helvetica, sans-serif;
     text-decoration: none;
   }
   .gb-close:hover { color: #c00; }
@@ -248,7 +247,7 @@ export function renderPage(opts: TemplateOptions): string {
     height: 80px;
     padding: 2px 4px;
     font-size: 13px;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: inherit;
     border: 1px solid #aaa;
     resize: vertical;
   }
@@ -324,7 +323,7 @@ export function renderPage(opts: TemplateOptions): string {
 
   <div id="guestbook-modal">
     <div class="gb-panel">
-    <label class="gb-close" for="guestbook-toggle">[x]</label>
+    <a class="gb-close" href="/">[x]</a>
     <div class="gb-header">
       <h1>/b/ - Guestbook</h1>
     </div>

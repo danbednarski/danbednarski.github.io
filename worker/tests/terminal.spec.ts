@@ -14,7 +14,7 @@ test.describe('Terminal', () => {
     await expect(page.locator('#quote')).toContainText('C.S. Lewis');
 
     // Prompt is visible
-    await expect(page.locator('form label')).toContainText('guest@darigo.su:~ $');
+    await expect(page.locator('form label')).toContainText('guest@pears:~ $');
 
     // Input exists
     const input = page.locator('form input[name="cmd"]');
@@ -28,20 +28,21 @@ test.describe('Terminal', () => {
 
   test('welcome message shows available commands', async ({ page }) => {
     const welcome = page.locator('.welcome');
-    await expect(welcome).toContainText('D-WOS');
+    await expect(welcome).toContainText('P-WOS');
     await expect(welcome).toContainText('Commands:');
     await expect(welcome).toContainText('ls');
     await expect(welcome).toContainText('cat');
     await expect(welcome).toContainText('who');
-    await expect(welcome).toContainText('ps');
+    await expect(welcome).not.toContainText('ps');
   });
 
   test('ls command lists files', async ({ page }) => {
     await page.goto('/?cmd=ls');
     const output = page.locator('.cmd-output');
     await expect(output).toContainText('README.md');
-    await expect(output).toContainText('HACKME');
-    await expect(output).toContainText('scry.txt');
+    // Removed files should NOT appear
+    await expect(output).not.toContainText('HACKME');
+    await expect(output).not.toContainText('scry.txt');
     // Hidden file should NOT appear
     await expect(output).not.toContainText('.somefile.txt');
   });
@@ -50,35 +51,32 @@ test.describe('Terminal', () => {
     await page.goto('/?cmd=ls');
     const output = page.locator('.cmd-output');
     await expect(output).toContainText('-rw-rw-r--');
-    await expect(output).toContainText('-r--r-----');
   });
 
   test('who command shows bio', async ({ page }) => {
     await page.goto('/?cmd=who');
     const output = page.locator('.cmd-output');
-    await expect(output).toContainText('Darigo');
+    await expect(output).toContainText('pricklypears');
     await expect(output).toContainText('rogue dev');
   });
 
-  test('ps command shows processes', async ({ page }) => {
+  test('ps command is removed', async ({ page }) => {
     await page.goto('/?cmd=ps');
     const output = page.locator('.cmd-output');
-    await expect(output).toContainText('PID TTY');
-    await expect(output).toContainText('darigo.su');
-    await expect(output).toContainText('github');
+    await expect(output).toContainText('Unknown command');
   });
 
   test('cat README.md shows content', async ({ page }) => {
     await page.goto('/?cmd=cat+README.md');
     const output = page.locator('.cmd-output');
-    await expect(output).toContainText('Heyyyy');
-    await expect(output).toContainText('home on the web');
+    await expect(output).toContainText('Lichess');
+    await expect(output).toContainText('guestbook');
   });
 
-  test('cat HACKME shows content', async ({ page }) => {
+  test('cat HACKME returns not found', async ({ page }) => {
     await page.goto('/?cmd=cat+HACKME');
     const output = page.locator('.cmd-output');
-    await expect(output).toContainText('TODO: implement CTF');
+    await expect(output).toContainText('does not exist');
   });
 
   test('cat without argument shows usage', async ({ page }) => {
